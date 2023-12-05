@@ -1,20 +1,21 @@
 // Producto.tsx
 import React, { useState } from 'react';
-import { View, Text, Button, Image, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, Button, Image, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useCarrito } from '../Navigation/CarritoContext';
 import { styles } from '../../theme/appTheme';
 
 const ProductScreen = () => {
-  const [cart, setCart] = useState([]);
-  const [quantities, setQuantities] = useState({});
+  const { agregarAlCarrito } = useCarrito();
   const navigation = useNavigation();
 
+  const [quantities, setQuantities] = useState({});
   const products = [
     {
       id: 1,
       name: 'Audifonos Gamer, Auriculares con Microfono',
       image: require('./../../assets/img/dispositivos/audifonos.jpg'),
-      price: 599,
+      price: 59.83,
     },
     {
       id: 2,
@@ -64,7 +65,6 @@ const ProductScreen = () => {
       image: require('./../../assets/img/dispositivos/wifi.jpg'),
       price: 1142,
     },
-    // Agrega más productos según sea necesario
   ];
 
   const addToCart = (selectedProduct) => {
@@ -74,9 +74,10 @@ const ProductScreen = () => {
       image: selectedProduct.image,
       quantity: quantities[selectedProduct.id] || 1,
       price: selectedProduct.price * (quantities[selectedProduct.id] || 1),
+      type: 'producto',
     };
 
-    setCart([...cart, newProduct]);
+    agregarAlCarrito(newProduct);
     setQuantities({ ...quantities, [selectedProduct.id]: 1 });
   };
 
@@ -96,33 +97,28 @@ const ProductScreen = () => {
     }
   };
 
-  const viewCart = () => {
-    const cartWithQuantities = cart.map((product) => ({
-      ...product,
-      quantity: quantities[product.id] || 1,
-    }));
-    navigation.navigate('Cart', { cart: cartWithQuantities });
-  };
-
   return (
     <ScrollView style={styles.productContainer}>
-      {products.map((product) => (
-        <View key={product.id} style={styles.productContainer1}>
-          <Image source={product.image} style={styles.productImage} />
-          <Text style={styles.productName}>{product.name}</Text>
-          <Text style={styles.productPrice}>Precio: {product.price * (quantities[product.id] || 1)}</Text>
+      {products.map((producto) => (
+        <View key={producto.id} style={styles.productContainer1}>
+          <Image source={producto.image} style={styles.productImage} />
+          <Text style={styles.productName}>{producto.name}</Text>
+          <Text style={styles.productPrice}>Precio: {producto.price * (quantities[producto.id] || 1)}</Text>
           <View style={styles.quantityContainer}>
-            <Button title="-" onPress={() => decreaseQuantity(product.id)} />
-            <Text style={styles.quantityText}>{quantities[product.id] || 1}</Text>
-            <Button title="+" onPress={() => increaseQuantity(product.id)} />
+            <Button title="-" onPress={() => decreaseQuantity(producto.id)} />
+            <Text style={styles.quantityText}>{quantities[producto.id] || 1}</Text>
+            <Button title="+" onPress={() => increaseQuantity(producto.id)} />
           </View>
-          <Button title="Agregar al carrito" onPress={() => addToCart(product)} />
+          <Button title="Agregar al carrito" onPress={() => addToCart(producto)} />
         </View>
       ))}
-      <Button title="Ver carrito" onPress={viewCart} />
+      <Text></Text>
+      <Button title="Ir a Servicio" onPress={() => navigation.navigate('Servicio')} />
+      <Text></Text>
       <Text></Text>
     </ScrollView>
   );
 };
 
 export default ProductScreen;
+  

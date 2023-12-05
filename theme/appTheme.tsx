@@ -65,13 +65,13 @@ export const styles = StyleSheet.create({
 
     productContainer: {
       padding: 10,
-      backgroundColor: '#FF1C1C',
+      backgroundColor: '#0086F8',
     },
     productContainer1: {
       marginBottom: 20,
       borderWidth: 1,
       backgroundColor: '#FFFFFF',
-      borderColor: '#000000',
+      borderColor: '#0DFF29',
       borderRadius: 10,
       padding: 10,
     },
@@ -102,11 +102,11 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       color: 'black',
     },
-    ////////////////////Carrito//////////////////////////7
+    ////////////////////Carrito//////////////////////////
 
     carritocontainer: {
       padding: 20,
-      backgroundColor: '#1CFF76',
+      backgroundColor: '#5A65F4',
     },
     carritocontainer1: {
       flexDirection: 'row',
@@ -126,6 +126,35 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       fontWeight: 'bold',
       marginBottom: 5,
+      color: 'white',
+    },
+
+    ////////////////////////////////Login////////////////////////////////
+
+    logincontainer: {
+      flex: 1,
+      justifyContent: 'center',
+      padding: 20,
+      backgroundColor: '#fff',
+    },
+    logintitle: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      marginBottom: 20,
+      textAlign: 'center',
+      color: 'black',
+    },
+    loginlabel: {
+      fontSize: 16,
+      marginBottom: 5,
+      color: 'black',
+    },
+    logininput: {
+      height: 40,
+      borderColor: 'gray',
+      borderWidth: 1,
+      marginBottom: 10,
+      paddingLeft: 10,
       color: 'black',
     },
 
@@ -147,6 +176,7 @@ export const styles = StyleSheet.create({
       fontSize: 20,
       fontWeight: 'bold',
       marginBottom: 10,
+      textAlign: 'center',
       color: 'black',
     },
     date: {
@@ -178,33 +208,47 @@ export const styles = StyleSheet.create({
       textAlign: 'center',
     },
 
-    ////////////////////////////////Login////////////////////////////////
+    ///////////////////Servico/////////////////////////
 
-    logincontainer: {
-      flex: 1,
-      justifyContent: 'center',
-      padding: 20,
-      backgroundColor: '#fff',
+    servicioContainer: {
+      padding: 10,
+      backgroundColor: '#1CB955',
     },
-    logintitle: {
-      fontSize: 24,
-      fontWeight: 'bold',
+    servicioContainer1: {
       marginBottom: 20,
-      textAlign: 'center',
-      color: 'black',
+      borderWidth: 1,
+      backgroundColor: '#FFFFFF',
+      borderColor: '#000000',
+      borderRadius: 10,
+      padding: 10,
     },
-    loginlabel: {
+    servicioImage: {
+      width: 100,
+      height: 100,
+      borderRadius: 5,
+      marginBottom: 10,
+    },
+    servicioName: {
       fontSize: 16,
+      fontWeight: 'bold',
       marginBottom: 5,
       color: 'black',
     },
-    logininput: {
-      height: 40,
-      borderColor: 'gray',
-      borderWidth: 1,
-      marginBottom: 10,
-      paddingLeft: 10,
+    servicioPrice: {
+      fontSize: 14,
+      marginBottom: 5,
       color: 'black',
     },
+    serquantityContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 10,
+    },
+    serquantityText: {
+      marginHorizontal: 10,
+      fontSize: 16,
+      color: 'black',
+    },
+
 
 });

@@ -8,7 +8,6 @@ import ProductScreen from '../screens/Producto';
 import CartScreen from '../screens/Carrito';
 import TicketScreen from '../screens/Ticket';
 import ServicioScreen from '../screens/Servicio';
-import TicketSerScreen from '../screens/TicketSer';
 
 const Stack = createStackNavigator();
 
@@ -18,10 +17,9 @@ const StackNavigation = () => {
       <Stack.Screen name="Login" options= {{title:''}} component={LoginScreen} />
       <Stack.Screen name="Inicio" options= {{title:''}} component={Inicio} />
       <Stack.Screen name="Producto" options= {{title:''}} component={ProductScreen} />
-      <Stack.Screen name="Cart" options= {{title:''}} component={CartScreen} />
+      <Stack.Screen name="Carrito" options= {{title:''}} component={CartScreen} />
       <Stack.Screen name="Ticket" options= {{title:''}} component={TicketScreen} />
       <Stack.Screen name="Servicio" options= {{title:''}} component={ServicioScreen} />
-      <Stack.Screen name="TicketSer" options= {{title:''}} component={TicketSerScreen} />
     </Stack.Navigator>
   );
 };
